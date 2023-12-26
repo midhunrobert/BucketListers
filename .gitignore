@@ -1,1 +1,33 @@
-OPENCAGE_API_KEY=9ef1ee4a5fbf47ffbcd2e5135faf9817
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Express.js
+.env
+
+# React
+/build
+/node_modules
+
+# MongoDB
+*.log
+*.lock
+/data/db/
+
+# General
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+log/
+logs/
+
+# Dependencies
+package-lock.json
+yarn.lock
