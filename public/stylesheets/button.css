@@ -1,0 +1,15 @@
+button {
+    /* Reset box model properties */
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    /* Reset background, text, and font properties */
+    background: none;
+    color: inherit;
+    font: inherit;
+
+    /* Remove any additional styles */
+    cursor: pointer;
+    outline: none; /* Remove default focus outline */
+}

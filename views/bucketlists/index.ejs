@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/button.css">
+
+<div class="gallery" id="gallery">
+    <% for(let item of bucketlist){ %>
+    <div class="photo" id="photo1">
+        <% if(currentUser) {%>
+        <form class="d-inline" action="/<%= item._id  %>/addToBucketList" method="POST">
+            <button type="submit" class="icon"><i class="fas fa-bucket"></i></button>
+        </form>
+        <% }else{ %>
+        <a href="/login"  class="icon"><i class="fas fa-bucket"></i></a>
+        <% } %>
+        <a href="/bucketlist/<%= item._id  %>">
+        <img src="<%= item.image %>" alt="<%= item.image  %>">
+        </a>
+    </div>
+    <% } %>
+</div>
+<style>
+    
+
+</style>
+
+
+

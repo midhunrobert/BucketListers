@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate') %>
+
+
+<div class="gallery" id="gallery">
+    <% for(let item of bucketlist){ %>
+    <div class="photo" id="photo1">
+        <form action="/deleteBucketList/<%= item._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="icon"><i class="fas fa-trash"></i></button>
+        </form>
+        
+        <a href="/bucketlist/<%= item._id  %>">
+        <img src="<%= item.image %>" alt="<%= item.image  %>">
+        </a>
+    </div>
+    <% } %>
+</div>
+
+<style>
+    button {
+    /* Reset box model properties */
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    /* Reset background, text, and font properties */
+    background: none;
+    color: inherit;
+    font: inherit;
+
+    /* Remove any additional styles */
+    cursor: pointer;
+    outline: none; /* Remove default focus outline */
+}
+
+</style>
+
