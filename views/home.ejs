@@ -3,84 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-
-        #countdown {
-            text-align: center;
-        }
-
-        #countdown h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        #countdown p {
-            font-size: 1.2em;
-            margin: 0;
-        }
-
-        #visit-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1.2em;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <title>
+        BucketListers
+    </title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'%3E%3Cpath d='M96 152v8H48v-8C48 68.1 116.1 0 200 0h48c83.9 0 152 68.1 152 152v8H352v-8c0-57.4-46.6-104-104-104H200C142.6 48 96 94.6 96 152zM0 224c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32h-5.1L388.5 469c-2.6 24.4-23.2 43-47.7 43H107.2c-24.6 0-45.2-18.5-47.7-43L37.1 256H32c-17.7 0-32-14.3-32-32z' fill='gold'/%3E%3C/svg%3E" type="image/svg+xml">
+    <script src="https://kit.fontawesome.com/169f237b8c.js" crossorigin="anonymous"></script>
+    <script src="javascripts/home.js"></script>
+    <link rel="stylesheet" href="stylesheets/home.css">
 </head>
 <body>
 
-    <div id="countdown">
-        <h1>Coming Soon</h1>
-        <p id="demo"></p>
-        <a id="visit-button" href="/bucketlist">Visit Bucket List</a>
-    </div>
+    <header>
+        <h1><i class="fas fa-bucket" style="color: gold;"></i>BucketListers</h1><a href="/login"><i class="fa-solid fa-user" style="text-align: end;"></a></i>
+    </header>
 
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
+    <main>
+        <div class="column">
+            <img src="https://images.unsplash.com/photo-1522850067562-a4c60453058d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fEhpa2luZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
+            <a href="/bucketlist/new">
+            <div class="image-text">
+                <h1>Create</h1>
+            </div>
+            </a>
+        </div>
 
-        // Update the countdown every 1 second
-        var x = setInterval(function() {
-            // Get the current date and time
-            var now = new Date().getTime();
+        <div class="column">
+            <img src="https://images.unsplash.com/photo-1527610276295-f4c1b38decc5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGFkdmVudHVyZXxlbnwwfDF8MHx8fDA%3D%3D" alt="Image 2">
+            <a href="/login">
+            <div class="image-text">
+                <h1>Share</h1>
+            </div>
+            </a>
+        </div>
 
-            // Calculate the time remaining
-            var distance = countDownDate - now;
-
-            // Calculate days, hours, minutes, and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the countdown
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-            // If the countdown is over, display a message
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
-
+        <div class="column">
+            <img src="https://images.unsplash.com/photo-1611124600582-c9ef0e977585?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGFkdmVudHVyZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 3">
+            <a href="/bucketlist">
+            <div class="image-text">
+                <h1>Explore</h1>
+            </div>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 BucketListers. All rights reserved.</p>
+    </footer>
 </body>
 </html>
