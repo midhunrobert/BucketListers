@@ -137,6 +137,25 @@ module.exports.updateBucketList = async (req, res, next) => {
         res.status(500).send('Internal Server Error');
     }
 };
+module.exports.cities = async (req,res) =>{
+    const location = await BucketList.distinct('location.name')
+    res.render('bucketlists/cities', {locations:location})
+}
+
+module.exports.sortCity = async (req,res) =>{
+    const location = req.params .location
+    const bucketlist = await BucketList.find({'location.name' :location}).populate({
+        path: 'reviews',
+        populate: {
+            path: 'author'
+        }
+    }).populate('author');
+    if (!bucketlist) {
+        req.flash('error', 'Cannot find that bucketlist!');
+        return res.redirect('/bucketlist');
+    }
+    res.render('bucketlists/index', {bucketlist})
+}
 
 module.exports.deleteBucketList = async (req, res) => {
     const { id } = req.params;

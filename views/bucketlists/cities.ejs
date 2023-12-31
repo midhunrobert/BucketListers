@@ -1,0 +1,78 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/button.css">
+
+<style>
+    
+
+    #searchContainer {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #searchBar {
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 25px;
+        width: 250px;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s;
+    }
+
+    #searchBar:focus {
+        border-color: gold;
+        box-shadow: 0 0 10px rgba(246, 246, 59, 0.5);
+    }
+    
+
+    
+</style>
+
+<div id="searchContainer">
+    <input type="text" id="searchBar" placeholder="Search your destination">
+</div>
+
+<div class="gallery" id="gallery">
+    <% for(let location of locations){ %>
+    <div class="photo" id="photo1">
+        <a href="/bucketlist/search/<%=location  %>" style="text-decoration: none; color: black;">
+        <h5 style="text-align: center; margin-top: 25%; font-weight: bold;"><%= location.split(', ')[location.split(', ').length-1] %></h5>
+    </a>
+
+        <p style="display: none;"><%= location  %></p>
+    </div>
+    <% } %>
+</div>
+
+<script>
+    const searchBar = document.getElementById('searchBar');
+    const photos = document.querySelectorAll('.photo');
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        color+='73'
+        return color;
+    }
+
+    searchBar.addEventListener('input', function () {
+        const searchTerm = searchBar.value.toLowerCase();
+
+        photos.forEach(function (photo) {
+            const location = photo.querySelector('p').textContent.toLowerCase();
+
+            if (location.includes(searchTerm)) {
+                photo.style.display = 'block';
+            } else {
+                photo.style.display = 'none';
+            }
+        });
+    });
+
+    photos.forEach(function (photo) {
+        photo.style.backgroundColor = getRandomColor();
+    });
+</script>
